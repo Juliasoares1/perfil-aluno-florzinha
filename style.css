@@ -1,0 +1,144 @@
+/*
+ * style.css para o perfil da Florzinha
+ */
+
+/* Aqui a gente define as cores principais pra não ter que ficar escrevendo toda hora */
+
+:root {
+    --rosa-florzinha: #FF69B4; /* O rosa*/
+    --azul-ceu-claro: #FF69B4; /* Mais rosa*/
+    --amarelo-brilhante: #ed6105f6; /* Pra destacar umas coisas importantes */
+    --fundo-leve: #F8F8FF; /* Um branco clarinho pro fundo da página */
+    --texto-normal: #0d0d0d; /* Cor pro texto geral, um  preto */
+    --borda-suave:#ed6105f6; /* Pras bordas das tabelas, pra não ficar tão reto */
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Fonte simples */
+    margin: 20px; /* Uma margem pra não grudar nas bordas da tela */
+    background-color: var(--fundo-leve); /* Usando a cor de fundo que escolhi */
+    color: var(--texto-normal); /* A cor padrão do texto */
+    /* Ah, se quiser, pode tentar um 'text-align: center;' aqui pro corpo todo,
+       mas aí tem que ajustar outras coisas pra não ficar estranho. */
+}
+
+h1, h2 {
+    color: var(--rosa-florzinha); /* Títulos em rosa, é a cor dela */
+    text-align: center; /* Títulos sempre centralizados, fica mais arrumadinho */
+    /* Deixei um espaço em cima dos títulos pra respirar */
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* Agora, a parte das tabelas, que é pra organizar tudo */
+table {
+    width: 85%; /* Um pouco maior que o 80%, pra caber mais coisa */
+    margin: 25px auto; /* Centraliza a tabela, com espaço em cima e embaixo */
+    border-collapse: collapse; /* Tira aquelas linhazinhas duplas das bordas */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15); /* Uma sombrinha pra dar um efeito 3D, mas leve */
+    background-color: #ffffff; /* Fundo branco pra não cansar a vista */
+    border-radius: 8px; /* Cantinhos arredondados, fica mais suave */
+    overflow: hidden; /* Garante que os cantos arredondados funcionem na borda */
+}
+
+th, td {
+    border: 1px solid var(--borda-suave); /* Bordinha suave pra separar as células */
+    padding: 12px 18px; /* Um acolchoamento pra não ficar apertado */
+    text-align: left; /* Texto alinhado à esquerda dentro das células */
+    vertical-align: top; /* Se tiver muito texto, começa de cima */
+}
+
+th {
+    background-color: var(--azul-ceu-claro); /* Cabeçalho da tabela com o azul do céu */
+    color: #ffffff; /* Texto branco no cabeçalho, contraste bom */
+    font-weight: bold; /* Deixa o texto do cabeçalho mais forte */
+    font-size: 1.1em; /* Um pouquinho maior pra dar destaque */
+}
+
+/* Pra dar um charminho, linhas pares com uma cor diferente */
+tr:nth-child(even) {
+    background-color: #f7f7f7; /* Um cinza super clarinho */
+}
+/* E as linhas ímpares? Deixa branco mesmo, pra contrastar */
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Parte da foto principal e as miniaturas, tipo galeria de e-commerce */
+.profile-img-container {
+    text-align: center; /* Centraliza tudo que estiver aqui dentro */
+    margin-bottom: 25px; /* Espaço depois das fotos */
+}
+
+#main-profile-photo {
+    width: 280px; /* Um pouco maior pra ser a principal */
+    height: 280px;
+    object-fit: cover; /* Pra imagem não esticar e ficar feia */
+    border-radius: 50%; /* FOTO REDONDA! Fica mais legal assim */
+    border: 6px solid var(--amarelo-brilhante); /* Borda amarela bem chamativa */
+    display: block; /* Pra poder centralizar com 'margin: auto' */
+    margin: 25px auto; /* Centraliza a imagem principal */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Uma sombra pra dar um "pop" */
+}
+
+.photo-gallery {
+    display: flex; /* Coloca as miniaturas uma do lado da outra */
+    justify-content: center; /* Centraliza as miniaturas */
+    gap: 12px; /* Espacinho entre elas */
+    margin-top: 20px;
+    flex-wrap: wrap; /* Se tiver muitas fotos, elas quebram a linha */
+}
+
+.photo-gallery img {
+    width: 90px; /* Miniaturas um pouco menores */
+    height: 90px;
+    object-fit: cover;
+    border: 2px solid var(--borda-suave); /* Borda suave nas miniaturas */
+    border-radius: 10px; /* Um pouco arredondado, mas não totalmente redondo */
+    cursor: pointer; /* Pra pessoa saber que dá pra clicar */
+    transition: transform 0.2s ease-in-out, border-color 0.2s; /* Animação ao passar o mouse e mudar a borda */
+}
+
+.photo-gallery img:hover {
+    transform: scale(1.1); /* Dá uma aumentada quando passa o mouse */
+    border-color: var(--rosa-florzinha); /* A borda fica rosa, combinando com a Florzinha! */
+}
+
+/* Estilo para os links, tipo LinkedIn */
+a {
+    color: var(--rosa-florzinha); /* Links em rosa, claro! */
+    text-decoration: none; /* Tira aquele sublinhado chato */
+    font-weight: bold; /* Deixa o link mais forte */
+    transition: color 0.2s; /* Animação na cor */
+}
+
+a:hover {
+    text-decoration: underline; /* Aparece o sublinhado só quando passa o mouse */
+    color: var(--azul-ceu-claro); /* Mudei a cor ao passar o mouse pra azul */
+}
+
+/* Pra quando a tela for pequena (celular) */
+@media (max-width: 768px) {
+    table, th, td {
+        display: block; /* Tabelas viram blocos, melhor pro celular */
+        width: 100%; /* Ocupam a largura toda */
+    }
+    th {
+        text-align: center; /* Cabeçalhos centralizados no celular */
+    }
+    td {
+        text-align: left; /* Conteúdo ainda à esquerda */
+        padding-left: 20px; /* Um recuo pra não grudar na borda */
+        border-bottom: none; /* Tira a borda de baixo pra não duplicar */
+    }
+    tr {
+        margin-bottom: 15px; /* Espaço entre as seções da tabela */
+        border: 1px solid var(--borda-suave);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2; /* Mantém o fundo para pares */
+    }
+}
+

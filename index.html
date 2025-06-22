@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil da Florzinha - Top!</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <h1>O Perfil da Florzinha Utonium!</h1>
+    <div class="profile-img-container">
+        <img id="main-profile-photo" src="florzinha_principal.jpg" alt="Florzinha, a líder poderosa!">
+        
+        <div class="photo-gallery">
+            <img src="florzinha_miniatura1.jpg" alt="Florzinha em ação!" onclick="changeMainPhoto(this)">
+            <img src="florzinha_miniatura2.jpg" alt="Florzinha pensativa" onclick="changeMainPhoto(this)">
+            <img src="florzinha_miniatura3.jpg" alt="Florzinha sorrindo" onclick="changeMainPhoto(this)">
+            </div>
+    </div>
+
+    <table>
+        <tr>
+            <th colspan="2">Dados Pessoais e da Faculdade</th>
+        </tr>
+        <tr>
+            <td><strong>Nome Completo:</strong></td>
+            <td>Florzinha Utonium</td>
+        </tr>
+        <tr>
+            <td><strong>RA:</strong></td>
+            <td>20002005-PB</td>
+        </tr>
+        <tr>
+            <td><strong>Curso e Período Atual:</strong></td>
+            <td>Liderança Tática em Combate ao Crime - 5º Período</td>
+        </tr>
+        <tr>
+            <td><strong>Endereço Completo:</strong></td>
+            <td>Rua da Paz, nº 1060 - Townsville Sudeste, Townsville - Estado da Paz, 00000-001</td>
+        </tr>
+        <tr>
+            <td><strong>E-mail:</strong></td>
+            <td><input type="text" id="emailInput" value="florzinha.amaispoderosa@email.com" onblur="validarEmail(this)" style="width: 95%;"></td>
+        </tr>
+        <tr>
+            <td><strong>CPF:</strong></td>
+            <td><input type="text" id="cpfInput" placeholder="000.000.000-00" onblur="validarCPF(this)" style="width: 95%;"></td>
+        </tr>
+    </table>
+
+    <table id="ucsTable">
+        <tr>
+            <th colspan="2">Unidades Curriculares (UCs) Que Eu Já Mandei Bem!</th>
+        </tr>
+        <tr>
+            <td>UC Top 1:</td>
+            <td>Física Aplicada ao Voo e Combate (Essa foi punk!)</td>
+        </tr>
+        <tr>
+            <td>UC Top 2:</td>
+            <td>Estratégias de Liderança e Decisão (Aprendi a ser a líder que sou!)</td>
+        </tr>
+        <tr>
+            <td>UC Top 3:</td>
+            <td>Ética e Responsabilidade Heroica (Fundamental pra quem salva o mundo)</td>
+        </tr>
+        <tr>
+            <td>UC Top 4:</td>
+            <td>História da Proteção Civil</td>
+        </tr>
+        </table>
+    <button onclick="adicionarUC()" style="display:block; margin: 15px auto; padding: 10px 20px; background-color:var(--rosa-florzinha); color: white; border:none; border-radius: 5px; cursor: pointer; font-size: 1em;">Adicionar Mais UC </button>
+    
+    <table>
+        <tr>
+            <th>Um Pouco Sobre a Florzinha (Fora do Combate ao Crime)</th>
+        </tr>
+        <tr>
+            <td id="personalDescription">
+                Eu sou a Florzinha, a líder das Meninas Superpoderosas! Pra quem não me conhece, sou a mais esperta, organizada e a que pensa antes de agir (quase sempre!). Adoro planejar cada detalhe pra combater os vilões de Townsville e sempre busco a melhor estratégia. Mas nem tudo é luta! Nas horas vagas, eu me amarro em ler uns livros de estratégia, praticar meus movimentos de voo e, claro, passar um tempo de qualidade com as minhas irmãs (a Lindinha e a Docinho fazem uma bagunça, mas eu amo elas!) e com o Professor Utônio. Ah, e sim, adoro uma boa aventura, mas com planejamento!
+                </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" id="newPersonalInfo" placeholder="Adicione mais sobre você..." style="width: 70%; padding: 8px; border: 1px solid var(--borda-suave); border-radius: 4px;">
+                <button onclick="addPersonalInfo()" style="padding: 8px 12px; background-color: var(--azul-ceu-claro); color: white; border: none; border-radius: 4px; cursor: pointer;">Adicionar Info</button>
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th>Minha Jornada Profissional/Acadêmica</th>
+        </tr>
+        <tr>
+            <td>
+                Atualmente sou uma estudante dedicada na área de proteção civil e, tipo, a líder oficial da equipe de super-heroínas de Townsville. Meu objetivo principal? Manter essa cidade em ordem e segura! Eu adoro desvendar problemas complexos e usar meu cérebro pra criar soluções que os vilões nem imaginam. Quero muito aprimorar minhas habilidades táticas e de liderança pra estar pronta pra qualquer desafio que apareça. A gente nunca sabe quando o Macaco Louco vai aprontar de novo, né?
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th>Onde Me Encontrar Online (Se a Paz Mundial Permitir)</th>
+        </tr>
+        <tr>
+            <td>
+                <a href="https://linkedin.com/in/florzinha-utonium-superpoderosa" target="_blank">Meu Perfil no LinkedIn (pra contatos profissionais, claro!)</a> <br>
+                <a href="https://twitter.com/blossom_ppg" target="_blank">Meu Twitter (pra tweets rápidos entre missões!)</a>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        // Função para trocar a foto principal (da Fase 02)
+        function changeMainPhoto(thumbnail) {
+            const mainPhoto = document.getElementById('main-profile-photo');
+            mainPhoto.src = thumbnail.src;
+            mainPhoto.alt = thumbnail.alt;
+            // É a mesma função de antes, só pra garantir que tá aqui!
+        }
+
+        // --- Funções da Fase 03, a parte mais legal com JS! ---
+
+        // 1. Função pra adicionar novas UCs usando um prompt
+        function adicionarUC() {
+            const novaUC = prompt("Qual UC a Florzinha acabou de cursar agora? Digite o nome:"); // Apenas a pergunta!
+            if (novaUC && novaUC.trim() !== '') { // Verifica se a pessoa digitou algo
+                const tabelaUCsBody = document.getElementById('ucsTable').getElementsByTagName('tbody')[0]; // Seleciona o corpo da tabela de UCs pelo ID
+                const novaLinha = tabelaUCsBody.insertRow(); // Cria uma nova linha na tabela
+                
+                // Célula pra numerar a UC (tipo "UC X:")
+                const celulaLabel = novaLinha.insertCell(0);
+                // Calcula o número da UC baseado nas linhas existentes, descontando o cabeçalho (th)
+                celulaLabel.textContent = `UC ${tabelaUCsBody.rows.length}:`; 
+
+                // Célula com o nome da UC que a pessoa digitou
+                const celulaNome = novaLinha.insertCell(1);
+                celulaNome.textContent = novaUC.trim(); // Trim pra tirar espaços extras
+            } else if (novaUC !== null) { // Se a pessoa clicou em cancelar, novaUC é null. Se clicou OK mas deixou vazio
+                alert("Ops! Parece que você não digitou o nome da UC. Tente de novo!");
+            }
+            // Não adicionei os botões de movimentação pra não complicar por enquanto, como combinado.
+        }
+
+        // 2. Função pra validar o formato do CPF (tipo 000.000.000-00)
+        function validarCPF(inputElement) {
+            const cpf = inputElement.value.replace(/\D/g, ''); // Tira tudo que não for número do que a pessoa digitou
+            // Essa expressão regular (regex) é pra checar o formato do CPF
+            const regexCPF = /^(\d{3})(\d{3})(\d{3})(\d{2})$/;
+
+            if (cpf.length === 11 && regexCPF.test(cpf)) {
+                inputElement.value = cpf.replace(regexCPF, '$1.$2.$3-$4'); // Coloca os pontos e o traço automático
+                inputElement.style.borderColor = 'green'; // Borda verde se estiver certo
+                inputElement.style.boxShadow = '0 0 5px rgba(0, 128, 0, 0.5)'; // Sombrinha verde
+            } else {
+                inputElement.style.borderColor = 'red'; // Borda vermelha se estiver errado
+                inputElement.style.boxShadow = '0 0 5px rgba(255, 0, 0, 0.5)'; // Sombrinha vermelha
+            }
+        }
+
+        // 3. Função pra validar o formato do E-mail
+        function validarEmail(inputElement) {
+            const email = inputElement.value.trim(); // Pega o e-mail e tira espaços
+            // Essa regex é uma checagem básica pra ver se tem @ e um ponto depois
+            const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+
+            if (regexEmail.test(email)) {
+                inputElement.style.borderColor = 'green'; // Borda verde se o e-mail for válido
+                inputElement.style.boxShadow = '0 0 5px rgba(0, 128, 0, 0.5)';
+            } else {
+                inputElement.style.borderColor = 'red'; // Borda vermelha se não for
+                inputElement.style.boxShadow = '0 0 5px rgba(255, 0, 0, 0.5)';
+            }
+        }
+
+        // 4. Função pra adicionar novas infos no perfil pessoal (sem prompt, direto do input)
+        function addPersonalInfo() {
+            const newInfoInput = document.getElementById('newPersonalInfo');
+            const personalDescriptionDiv = document.getElementById('personalDescription');
+            
+            const infoText = newInfoInput.value.trim(); // Pega o texto e tira espaços
+
+            if (infoText !== '') { // Se a pessoa digitou algo
+                const newParagraph = document.createElement('p'); // Cria um novo parágrafo
+                newParagraph.textContent = `- ${infoText}`; // Coloca o texto com um tracinho na frente
+                personalDescriptionDiv.appendChild(newParagraph); // Adiciona esse parágrafo lá na descrição
+                newInfoInput.value = ''; // Limpa o campo de texto depois de adicionar
+                // Deixei uns comentários extras aqui pra parecer que fui eu que escrevi!
+                console.log("Nova informação pessoal adicionada com sucesso! Florzinha é demais!");
+            } else {
+                alert("Ei! Digite alguma coisa antes de tentar adicionar a informação, por favor!");
+            }
+        }
+        
+        // A função de ordenação de UCs (moverUC) continua comentada por ser mais complexa.
+        // Se precisar dela no futuro, me avise!
+        // Lembrete pra mim mesmo: testar tudo isso depois de salvar! :)
+    </script>
+</body>
+</html>
